@@ -1,0 +1,59 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Dto\{{DtoName}};
+use App\Repositories\{{repositoryName}};
+use App\Http\Requests\{{RequestName}};
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class {{ controllerName }} extends BaseController
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return $reauest, $modal
+     */
+    public function __construct({{repositoryName}} $repo)
+    {
+        $this->setRepo($repo, '{{directory_name}}', '{{route_name}}');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store({{RequestName}} $request)
+    {
+        try {
+            $this->_repo->store({{DtoName}}::fromRequest($request->validated()));
+            return redirect()->route($this->_route . '.index')->with('success', 'Successfully created.');
+        } catch (\Throwable $th) {
+            return redirect()->route($this->_route . '.index')->with('error', 'Something went wrong..');
+        }
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param Request Validation $validation
+     * @return \Illuminate\Http\Response
+     */
+    public function update({{RequestName}} $request, $id)
+    {
+        try {
+            $this->_repo->update($id, {{DtoName}}::fromRequest($request->validated()));
+            return redirect()->route($this->_route . '.index')->with('success', 'Updated succesfully');
+        } catch (\Throwable $th) {
+            if ($th instanceof NotFoundHttpException) {
+                $message = $th->getMessage(); // Get the exception message
+                return redirect()->route($this->_route . '.index')->with('error', $message);
+            } else {
+                return redirect()->route($this->_route . '.index')->with('error', 'Something went wrong..');
+            }
+        }
+    }
+}

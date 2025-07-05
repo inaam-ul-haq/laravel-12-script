@@ -1,0 +1,183 @@
+:root {
+    --primary-color: #174b79;
+    /* --secondary-color: #cf9c1e; */
+    --secondary-color: #ffd600;
+}
+
+.header {
+    margin-bottom: 1rem !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--primary-color) !important;
+}
+
+.content {
+    margin-top: 1rem !important;
+}
+
+.wrapper:before {
+    height: 10rem !important;
+}
+
+.btn-primary,
+.list-group-item.active,
+.bg-primary-dark,
+.splash .splash-icon {
+    background-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary,
+.list-group-item.active,
+.bg-primary-dark {
+    border: var(--primary-color) !important;
+}
+
+.btn-outline-primary {
+    background-color: transparent !important;
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: var(--secondary-color) !important;
+}
+
+a.sidebar-link .fab,
+a.sidebar-link .fal,
+a.sidebar-link .far,
+a.sidebar-link .fas,
+a.sidebar-link svg {
+    color: var(--primary-color) !important;
+}
+
+.sidebar-item.active>.sidebar-link .fab,
+.sidebar-item.active>.sidebar-link .fal,
+.sidebar-item.active>.sidebar-link .far,
+.sidebar-item.active>.sidebar-link .fas,
+.sidebar-item.active>.sidebar-link svg,
+.sidebar-item.active>.sidebar-link {
+    color: var(--secondary-color) !important;
+}
+
+.sidebar-item.active>.sidebar-link {
+    background-color: var(--primary-color) !important;
+}
+
+
+.sidebar-link:hover {
+    color: var(--primary-color) !important;
+    background-color: #e9e9e9 !important;
+}
+
+.sidebar-brand,
+.sidebar-brand:hover,
+.wrapper:before {
+    background-color: var(--primary-color) !important;
+}
+
+/* .header-title {
+    color: #ed1c24 !important;
+} */
+
+.dispatch-note {
+    display: block;
+    /* Ensures the badge behaves like a block element */
+    max-width: 100%;
+    /* Prevents overflow */
+    white-space: normal;
+    /* Allows wrapping */
+    word-wrap: break-word;
+    /* Breaks long words */
+    overflow-wrap: break-word;
+    /* Ensures text wraps properly */
+    text-align: left;
+    /* Align text properly */
+    padding: 8px;
+    /* Adds spacing inside the badge */
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: var(--primary-color) !important;
+    border-width: 1px !important;
+}
+
+.sidebar-user {
+    padding: 1rem 0rem 0rem !important;
+}
+
+.cardscroll {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    max-height: 20rem;
+}
+
+.text-bg-warning,
+.bg-warning {
+    background-color: var(--secondary-color) !important;
+}
+
+.sidebar-user img,
+.logo {
+    height: 5rem !important;
+    width: auto !important;
+}
+
+.center-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.nav-tab {
+    --bs-nav-link-padding-x: 1rem;
+    --bs-nav-link-padding-y: 0.5rem;
+    --bs-nav-link-font-weight: ;
+    --bs-nav-link-color: var(--bs-link-color);
+    --bs-nav-link-hover-color: var(--bs-link-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-secondary-color);
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.nav-item-tab {
+    padding: 0.5rem !important;
+}
+
+.nav-tab .active {
+    background-color: #ececec;
+}
+
+.sidebar-link,
+a.sidebar-link {
+    border-radius: .6rem !important;
+    padding: .5rem .6rem !important;
+}
+
+.sidebar [data-bs-toggle=collapse]:before {
+    top: 1.1rem !important;
+}
+
+.sidebar-item {
+    margin-bottom: 0.3rem !important;
+}
+
+.sidebar-dropdown {
+    padding-left: 1rem !important;
+}
+
+.min-height {
+    min-height: 85vh !important;
+}
