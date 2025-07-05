@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Constants\Constants;
 use App\Dto\UserDto;
+use App\Interface\UserInterface;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
@@ -11,7 +12,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Support\Facades\Password;
 use App\Notifications\UserCreatedResetNotification;
 
-class UserRepository extends BaseRepository
+class UserRepository extends BaseRepository implements UserInterface
 {
     /**
      * Create a new service instance.
@@ -40,7 +41,7 @@ class UserRepository extends BaseRepository
     /**
      * Store a newly created resource in storage.
      */
-    public function store($data)
+    public function store(UserDto $data)
     {
         $dataArray = $data->toArray();
         $roleId = $dataArray['type'];

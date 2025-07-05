@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Dto\UserDto;
-use App\Repositories\UserRepository;
 use App\Http\Requests\User\UserRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\User\UpdateProfileRequest;
 use App\Http\Requests\User\UserUpdateRequest;
+use App\Interface\UserInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,7 +18,7 @@ class UserController extends BaseController
      *
      * @return $reauest, $modal
      */
-    public function __construct(UserRepository $repo)
+    public function __construct(UserInterface $repo)
     {
         $this->setRepo($repo, "auth/pages/users", "users");
     }
