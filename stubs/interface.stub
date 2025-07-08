@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Interfaces;
+
+interface {{ interfaceName }}
+{
+    public function index();
+    public function all($relation = null);
+    public function show($id);
+    public function destroy($id);
+    public function store(\App\Dto\{{ dtoName }} $data);
+    public function update($id, \App\Dto\{{ dtoName }} $data);
+}

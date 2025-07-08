@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
+use App\Interfaces\{{ interfaceName }};
 use App\Dto\{{ modelDto }};
 use App\Models\{{ modelName }};
 
-class {{ repositoryName }} extends BaseRepository
+class {{ repositoryName }} extends BaseRepository implements {{ interfaceName }}
 {
     /**
      * Create a new service instance.

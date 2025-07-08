@@ -28,6 +28,7 @@ class RepoPattern extends Command
     private $request = null;
     private $dto = null;
     private $repo = null;
+    private $interface = null;
 
     /**
      * Execute the console command.
@@ -47,6 +48,7 @@ class RepoPattern extends Command
 
         $this->createController();
         $this->createDto();
+        $this->createInterface();
         $this->createRepository();
 
         $this->info("Custom class {$this->model} generated successfully!");
@@ -62,6 +64,7 @@ class RepoPattern extends Command
         $this->request = $name . 'Request';
         $this->dto = $name . 'Dto';
         $this->repo = $name . 'Repository';
+        $this->interface = $name . 'Interface';
     }
 
     private function getStub($name)
@@ -85,7 +88,7 @@ class RepoPattern extends Command
         $replacements = [
             'RequestName' => $this->request,
             'DtoName' => $this->dto,
-            'repositoryName' => $this->repo,
+            'interfaceName' => $this->interface,
             'route_name' => $this->migration
         ];
 
@@ -121,6 +124,28 @@ class RepoPattern extends Command
         }
     }
 
+    private function createInterface()
+    {
+        $classPath = app_path("Interfaces/{$this->interface}.php");
+
+        if (File::exists($classPath)) {
+            $this->error("The {$this->interface} already exists!");
+            return;
+        }
+
+        $interfaceDirectory = app_path("Interfaces");
+        if (!File::exists($interfaceDirectory)) {
+            File::makeDirectory($interfaceDirectory);
+        }
+
+        $stub = $this->getStub('interface');
+        $stub = str_replace('{{ interfaceName }}', $this->interface, $stub);
+        $stub = str_replace('{{ dtoName }}', $this->dto, $stub);
+
+        file_put_contents($classPath, $stub);
+    }
+
+
     private function createRepository()
     {
         $classPath = app_path("Repositories/{$this->repo}.php");
@@ -141,6 +166,7 @@ class RepoPattern extends Command
             $stub = str_replace('{{ modelDto }}', $this->dto, $stub);
             $stub = str_replace('{{ modelName }}', $this->model, $stub);
             $stub = str_replace('{{ repositoryName }}', $this->repo, $stub);
+            $stub = str_replace('{{ interfaceName }}', $this->interface, $stub);
 
             file_put_contents($classPath, $stub);
         }

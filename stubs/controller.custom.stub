@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Dto\{{DtoName}};
-use App\Repositories\{{repositoryName}};
+use App\Interfaces\{{interfaceName}};
 use App\Http\Requests\{{RequestName}};
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class {{ controllerName }} extends BaseController
 {
@@ -15,7 +15,7 @@ class {{ controllerName }} extends BaseController
      *
      * @return $reauest, $modal
      */
-    public function __construct({{repositoryName}} $repo)
+    public function __construct({{interfaceName}} $repo)
     {
         $this->setRepo($repo, '{{directory_name}}', '{{route_name}}');
     }
