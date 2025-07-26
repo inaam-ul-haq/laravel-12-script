@@ -1,7 +1,7 @@
 <x-layouts.auth>
-    <x-slot name="pageTitle">Create New Staff</x-slot>
-    <x-slot name="subTitle">Enter details for staff</x-slot>
-    <x-auth.card card-header="Create New Staff" header-button="true">
+    <x-slot name="pageTitle">{{__('language.create_new_staff_label')}}</x-slot>
+    <x-slot name="subTitle">{{__('language.create_new_staff_sub_title')}}</x-slot>
+    <x-auth.card card-header="{{__('language.create_new_staff_label')}}" header-button="true">
         <x-auth.form form-action="{{ route('users.store') }}" enctype="true">
             <div class="row">
                 <div class="col-md-8">
@@ -42,7 +42,7 @@
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-end">
                     <x-auth.input-button btn-class="btn-primary" btn-type="submit"
-                        btn-value="{{ __('Create New User') }}" />
+                        btn-value="{{__('language.create_new_staff_label')}}" />
                 </div>
             </div>
 

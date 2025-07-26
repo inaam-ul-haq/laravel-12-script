@@ -1,5 +1,5 @@
-<x-my-profile title="My Profile" sub-title="Complete detail about my profile">
-    <x-auth.card card-header="My Profile" header-button="true">
+<x-my-profile title="{{__('language.my_profile')}}" sub-title="{{__('language.my_profile_sub_title')}}">
+    <x-auth.card card-header="{{__('language.my_profile')}}" header-button="true">
         <x-auth.form form-action="{{ route('updatemyprofile') }}" enctype="true">
             @method('PUT')
 

@@ -1,5 +1,5 @@
-<x-settings title="General Settings" sub-title="Change your system settings">
-    <x-auth.card card-header="General Settings" header-button="true">
+<x-settings title="{{__('language.basic_info_title')}}" sub-title="{{__('language.basic_info_subtitle')}}">
+    <x-auth.card card-header="{{__('language.basic_info_title')}}" header-button="true">
         <x-auth.form form-action="{{ route('settings.basic_info') }}" enctype="true">
             @method('PUT')
 
@@ -26,7 +26,7 @@
 
                         <div class="col-md-12">
                             <x-auth.input-button btn-class="btn-primary" btn-type="submit"
-                                btn-value="{{ __('Update Basic Info') }}" />
+                                btn-value="{{ __('language.update_basic_info') }}" />
                         </div>
                     </div>
                 </div>

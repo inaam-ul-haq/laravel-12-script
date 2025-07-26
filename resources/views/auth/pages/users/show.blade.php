@@ -1,4 +1,4 @@
-<x-layouts.auth page-title="Users detail">
+<x-layouts.auth page-title="{{__('language.user_detail_title')}}">
     <x-auth.card card-header="{{ $data?->full_name }} Detail">
         <div class="row g-0">
             <div class="col-sm-3 col-xl-12 col-xxl-4 text-center">
@@ -14,15 +14,15 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <th>First Name</th>
+                    <th>{{__('language.first_name_label')}}</th>
                     <td>{{ $data?->first_name }}</td>
                 </tr>
                 <tr>
-                    <th>Last Name</th>
+                    <th>{{__('language.last_name_label')}}</th>
                     <td>{{ $data?->last_name }}</td>
                 </tr>
                 <tr>
-                    <th>User Email</th>
+                    <th>{{__('language.email_label')}}</th>
                     <td>{{ $data?->email }}</td>
                 </tr>
             </tbody>

@@ -1,29 +1,25 @@
 <x-layouts.auth>
-    <x-slot name="pageTitle">{{ \Str::title(str_replace('_', ' ', request()->user)) }} List</x-slot>
+    <x-slot name="pageTitle">{{ \Str::title(str_replace('_', ' ', request()->user)) }} {{__('language.list')}}</x-slot>
 
     <div class="row">
         <div class="col-md-12">
-            <x-auth.card card-header="{{ \Str::title(str_replace('_', ' ', request()->user)) }} List">
+            <x-auth.card
+                card-header="{{ \Str::title(str_replace('_', ' ', request()->user)) }} {{__('language.list')}}">
                 @can('add_user')
                 <x-slot name="headerCustom">
                     <x-auth.href-link link-href="{{ route('users.create') }}" link-class="btn btn-primary"
-                        link-value="{{ __('Create New Staff Member') }}" />
+                        link-value="{{ __('language.create_new_staff_label') }}" />
                 </x-slot>
                 @endcan
 
                 <x-auth.datatable>
                     <thead class="border-top">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-
-                            @if (request()->user == 'teacher')
-                            <th>Assign Class</th>
-                            @endif
-
+                            <th>{{__('language.id')}}</th>
+                            <th>{{__('language.name')}}</th>
+                            <th>{{__('language.email_label')}}</th>
                             @canany(['view_user', 'edit_user', 'delete_user'])
-                            <th>Action</th>
+                            <th>{{__('language.action')}}</th>
                             @endcanany
                         </tr>
                     </thead>
@@ -33,16 +29,6 @@
                             <td>{{ $key + 1 }}</td>
                             <td>{{ $user?->full_name }}</td>
                             <td>{{ $user?->email }}</td>
-
-                            @if (request()->user == 'teacher')
-                            <td>
-                                <a href="{{ route('users.showAssignSectionForm', $user->id) }}" class=""
-                                    title="Click here to assign class or section to this teacher"
-                                    data-bs-toggle="tooltip" data-bs-placement="top">
-                                    Assign Class
-                                </a>
-                            </td>
-                            @endif
 
                             @canany(['view_user', 'edit_user', 'delete_user'])
                             <td class="text-center">
@@ -54,13 +40,13 @@
 
                                         @if (auth()->user()->can('view_user'))
                                         <a class="dropdown-item" href="{{ route('users.show', $user?->id) }}">
-                                            <i class="fas fa-eye me-2 text-primary"></i> View User
+                                            <i class="fas fa-eye me-2 text-primary"></i> {{__('language.view')}}
                                         </a>
                                         @endif
 
                                         @if (auth()->user()->can('edit_user'))
                                         <a class="dropdown-item" href="{{ route('users.edit', $user?->id) }}">
-                                            <i class="fas fa-edit me-2 text-warning"></i> Edit User
+                                            <i class="fas fa-edit me-2 text-warning"></i> {{__('language.edit')}}
                                         </a>
                                         @endif
 
@@ -70,7 +56,7 @@
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="dropdown-item text-danger">
-                                                <i class="fas fa-trash-alt me-2"></i> Delete User
+                                                <i class="fas fa-trash-alt me-2"></i> {{__('language.delete')}}
                                             </button>
                                         </form>
                                         @endif

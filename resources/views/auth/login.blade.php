@@ -1,5 +1,5 @@
-<x-layouts.login page-title="Welcome to {{ config('app.name') }}! 👋"
-    sub-title="Please sign-in to your account and start the adventure">
+<x-layouts.login page-title="{{__('language.welcometo')}} {{ config('app.name') }}! 👋"
+    sub-title="{{__('language.welcome_sub_title')}}">
 
     <x-auth.form form-action="{{ route('login') }}">
 

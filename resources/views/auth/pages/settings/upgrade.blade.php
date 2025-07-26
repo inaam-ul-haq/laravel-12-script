@@ -1,5 +1,5 @@
-<x-settings title="Upgrade" sub-title="Update your software with latest updates and new features">
-    <x-auth.card card-header="Upgrade" header-button="true">
+<x-settings title="{{__('language.upgrade_title')}}" sub-title="{{__('language.upgrade_subtitle')}}">
+    <x-auth.card card-header="{{__('language.upgrade_title')}}" header-button="true">
 
     </x-auth.card>
 </x-settings>
