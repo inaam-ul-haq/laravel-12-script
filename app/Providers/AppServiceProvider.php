@@ -44,14 +44,19 @@ class AppServiceProvider extends ServiceProvider
 
             $this->registerBladeComponents();
 
-            Route::middleware(['web', 'auth', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
-                ->prefix(LaravelLocalization::setLocale() . '/my-account')
-                ->group(base_path('routes/panel.php'));
-
             $setting = $settingsService->getSettings();
+
             $settingsService->applySettings();
 
-            $this->setLocale($setting->default_language ?? config('app.locale'));
+            $locale = $setting->default_language ?? config('app.locale');
+            app()->setLocale($locale);
+
+            Route::group([
+                'prefix' => LaravelLocalization::setLocale($locale),
+                'middleware' => ['web', 'auth', 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+            ], function () {
+                Route::prefix('my-account')->group(base_path('routes/panel.php'));
+            });
 
             View::share('setting', $setting);
         } catch (\Exception $e) {

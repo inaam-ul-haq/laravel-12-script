@@ -1,4 +1,4 @@
-<x-layouts.login page-title="Adventure starts here 🚀" sub-title="Make your app management easy and fun!">
+<x-layouts.login page-title="{{__('language.registertitle')}}" sub-title="{{__('language.registersubtitle')}}">
 
     <x-auth.form form-action="{{ route('register', ['plan' => request()->plan, 'billing' => request()->billing]) }}">
 

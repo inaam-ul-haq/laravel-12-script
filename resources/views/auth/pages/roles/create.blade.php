@@ -1,47 +1,47 @@
 <x-layouts.auth>
-    <x-slot name="pageTitle">Create New Role</x-slot>
-@push('auth_styles')
-<style>
-    .big-checkbox {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        border: 2px solid #007bff;
-        background-color: #fff;
-    }
+    <x-slot name="pageTitle">{{__('language.role_create')}}</x-slot>
+    @push('auth_styles')
+    <style>
+        .big-checkbox {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #007bff;
+            background-color: #fff;
+        }
     </style>
-@endpush
+    @endpush
     <div class="row mt-3">
         <div class="col-md-12">
-            <x-auth.card card-header="Create New Role">
+            <x-auth.card card-header="{{__('language.role_create')}}">
                 <x-auth.form form-action="{{ route('roles.store') }}">
                     <div class="row">
                         <div class="col-md-4">
-                            <x-auth.input-field type="text" name="title" id="title" place="Enter title"
-                                val="{{ old('title') }}" required="true" label="Role Title" />
+                            <x-auth.input-field type="text" name="title" id="title"
+                                place="{{__('language.title_label')}}" val="{{ old('title') }}" required="true"
+                                label="{{__('role_title_label')}}" />
                         </div>
 
                         <div class="col-md-4">
                             <x-auth.input-field type="color" name="color" id="color" val="{{ old('color', '#000000') }}"
-                                required="true" label="Pick Color" place="Select role background color" required="true"
+                                required="true" label="Pick Color" place="{{__('language.role_color_place')}}"
+                                required="true"
                                 extraclasses="rounded-full w-12 h-12 p-0 border-none shadow cursor-pointer" />
                         </div>
 
-                        <h5 class="mt-3 card-title fs fw-semibold">Pick the permissions you'd like to assign to this
-                            role
-                            in the next step</h5>
+                        <h5 class="mt-3 card-title fs fw-semibold">{{__('language.pick_permission_title')}}</h5>
 
                         @foreach ($groupedPermissions as $category => $permissionGroup)
                         <div class="col-12 mt-3 mb-1">
                             <div class="border border-1 rounded-4 mb-3 p-3" style="background-color: #f8fafc;">
-                                <h6 class="fw-bold text-primary mb-3"><i class="fas fa-lock me-2"></i> {{ $category }}</h6>
+                                <h6 class="fw-bold text-primary mb-3"><i class="fas fa-lock me-2"></i> {{ $category }}
+                                </h6>
                                 <div class="row">
                                     @foreach ($permissionGroup as $permissionTh)
                                     <div class="col-md-4 mb-2">
                                         <x-auth.input-checkbox name="permissions[{{ $permissionTh->id }}]"
                                             id="{{ $permissionTh->id }}permission" :val="$permissionTh->id"
-                                            label="{{ $permissionTh->title }}"
-                                            extraclasses="big-checkbox"
+                                            label="{{ $permissionTh->title }}" extraclasses="big-checkbox"
                                             :checked="false" />
                                     </div>
                                     @endforeach

@@ -1,5 +1,5 @@
-<x-settings title="Site Health" sub-title="Check your site health with background processing or any memory issues">
-    <x-auth.card card-header="Site Health" header-button="true">
+<x-settings title="{{__('language.site_health_title')}}" sub-title="{{__('language.site_health_subtitle')}}">
+    <x-auth.card card-header="{{__('language.site_health_title')}}" header-button="true">
 
     </x-auth.card>
 </x-settings>

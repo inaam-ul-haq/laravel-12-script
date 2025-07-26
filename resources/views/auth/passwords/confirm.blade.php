@@ -1,5 +1,5 @@
-<x-layouts.login page-title="Confirm password">
-    {{ __('Please confirm your password before continuing.') }}
+<x-layouts.login page-title="{{__('language.confirm_password_label')}}">
+    {{ __('language.confirm_password_sub_title') }}
 
     <x-auth.form form-action="{{ route('password.confirm') }}">
         <div class="mb-3">
@@ -12,7 +12,7 @@
 
         <div class="d-grid">
             <x-auth.input-button btn-class="mb-3 btn-outline-primary col-3 mx-auto" btn-type="submit"
-                btn-value="{{ __('Confirm Password') }}" />
+                btn-value="{{ __('language.confirm_password_label') }}" />
         </div>
 
         @if (Route::has('password.request'))

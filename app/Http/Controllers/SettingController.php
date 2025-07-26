@@ -21,6 +21,7 @@ use App\Http\Requests\SiteSettings\SocialLoginRequest;
 use App\Http\Requests\SiteSettings\UpdateDefaultLanguage;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class SettingController extends Controller
 {
@@ -116,7 +117,16 @@ class SettingController extends Controller
     {
         try {
             $this->_repo->update_default_language(UpdateDefaultLanguageDto::fromRequest($request->validated()));
-            return response()->json(['message' => 'Language updated successfully.']);
+
+            $locale = $request->language;
+            $previousUrl = url()->previous();
+
+            $redirectUrl = LaravelLocalization::getLocalizedURL($locale, $previousUrl);
+
+            return response()->json([
+                'message' => 'Language updated successfully.',
+                'redirect_url' => $redirectUrl
+            ]);
         } catch (\Throwable $th) {
             return Exception::handle($th);
         }
