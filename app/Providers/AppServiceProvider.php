@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\View;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Illuminate\Support\Facades\Log;
 use App\Helper\Helpers;
-use App\Interface\UserInterface;
-use App\Repositories\UserRepository;
 use App\Services\SettingService;
 
 class AppServiceProvider extends ServiceProvider
@@ -20,10 +18,7 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Register any application services.
      */
-    public function register(): void
-    {
-        $this->app->bind(UserInterface::class, UserRepository::class);
-    }
+    public function register(): void {}
 
     /**
      * Bootstrap any application services.

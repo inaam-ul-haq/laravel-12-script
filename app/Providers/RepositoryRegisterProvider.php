@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
-use App\Models\Setting;
-use App\Repositories\SettingRepository;
 use Illuminate\Support\ServiceProvider;
+use App\Interface\UserInterface;
+use App\Interfaces\AuthSidebarMenuInterface;
+use App\Repositories\AuthSidebarMenuRepository;
+use App\Repositories\UserRepository;
 
 class RepositoryRegisterProvider extends ServiceProvider
 {
@@ -13,7 +15,8 @@ class RepositoryRegisterProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // $this->app->bind(SettingRepository::class, Setting::class);
+        $this->app->bind(UserInterface::class, UserRepository::class);
+        $this->app->bind(AuthSidebarMenuInterface::class, AuthSidebarMenuRepository::class);
     }
 
     /**

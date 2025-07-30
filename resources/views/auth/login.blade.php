@@ -16,18 +16,6 @@
             </div>
         </div>
 
-        <div class="my-4">
-            <div class="form-check">
-                <input class="form-check-input @error('terms_condition') is-invalid @enderror" type="checkbox" value="1"
-                    required name="terms_condition" id="terms_condition">
-                <label class="form-check-label" for="terms_condition">
-                    {{ __('language.agree_terms') }}
-                    <x-auth.href-link link-href="#" link-value="{{ __('language.terms_of_use') }}" /> &
-                    <x-auth.href-link link-href="#" link-value="{{ __('language.privacy_policy') }}" />
-                </label>
-            </div>
-        </div>
-
         <div class="d-grid">
             <x-auth.input-button btn-class="mb-3 btn-outline-primary col-3 mx-auto" btn-type="submit"
                 btn-value="{{ __('language.login_button') }}" />

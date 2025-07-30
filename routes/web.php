@@ -42,6 +42,7 @@ Route::group(
             'localeSessionRedirect',
             'localizationRedirect',
             'localeViewPath',
+            'guest'
         ],
     ],
     function () {

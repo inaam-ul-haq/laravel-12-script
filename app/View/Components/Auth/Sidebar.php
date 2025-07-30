@@ -2,13 +2,14 @@
 
 namespace App\View\Components\Auth;
 
+use App\Models\AuthSidebarMenu;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Sidebar extends Component
 {
-    public $roles = null;
+    public $sidebarmenus = null;
 
     /**
      * Create a new component instance.
@@ -17,8 +18,7 @@ class Sidebar extends Component
      */
     public function __construct()
     {
-        $this->roles = app()->make('App\Repositories\RoleRepository')->get_all_roles();
-        $this->roles = $this->roles->pluck('title', 'name');
+        $this->sidebarmenus = app()->make('App\Interfaces\AuthSidebarMenuInterface')->sidebarMenus();
     }
 
     /**

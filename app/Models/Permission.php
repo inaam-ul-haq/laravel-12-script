@@ -25,4 +25,9 @@ class Permission extends SpatiePermission
         return $this->belongsToMany(Role::class, 'available_permissions', 'permission_id', 'role_id')
             ->withTimestamps();
     }
+
+    public function sidebarMenus()
+    {
+        return $this->belongsToMany(AuthSidebarMenu::class, 'auth_sidebar_menu_permissions');
+    }
 }

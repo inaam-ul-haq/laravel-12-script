@@ -185,4 +185,6 @@ return [
     'enter_secret' => "Sisesta saladus",
     'enter_url' => "Sisesta URL",
     'update_social_logins' => "Uuenda sotsiaalmeedia sisselogimisi",
+
+    'sidebar_menu' => 'Külgriba funktsioonid',
 ];
