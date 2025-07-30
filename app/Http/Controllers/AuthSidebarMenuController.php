@@ -17,7 +17,7 @@ class AuthSidebarMenuController extends BaseController
      */
     public function __construct(AuthSidebarMenuInterface $repo)
     {
-        $this->setRepo($repo, '{{directory_name}}', 'authsidebarmenus');
+        $this->setRepo($repo, 'auth.pages.manues', 'menues');
     }
 
     /**
@@ -30,9 +30,17 @@ class AuthSidebarMenuController extends BaseController
     {
         try {
             $this->_repo->store(AuthSidebarMenuDto::fromRequest($request->validated()));
-            return redirect()->route($this->_route . '.index')->with('success', 'Successfully created.');
+
+            return response()->json([
+                'status' => true,
+                'message' => 'Successfully created.',
+            ], 200);
         } catch (\Throwable $th) {
-            return redirect()->route($this->_route . '.index')->with('error', 'Something went wrong..');
+            return response()->json([
+                'status' => false,
+                'message' => 'Something went wrong.',
+                'error' => $th->getMessage() // Optional: helpful in dev environment
+            ], 500);
         }
     }
 

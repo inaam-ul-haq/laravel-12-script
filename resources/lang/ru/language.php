@@ -187,4 +187,6 @@ return [
     'enter_secret' => 'Enter secret',
     'enter_url' => 'Enter URL',
     'update_social_logins' => 'Update Social Logins',
+
+    'sidebar_menu' => 'Features of Sidebar', // corrected from 'Features' to 'Features of Sidebar'
 ];

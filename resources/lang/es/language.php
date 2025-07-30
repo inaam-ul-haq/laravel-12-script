@@ -184,4 +184,6 @@ return [
     'enter_secret' => 'Ingresa la clave secreta',
     'enter_url' => 'Ingresa la URL',
     'update_social_logins' => 'Actualizar inicios de sesión sociales',
+
+    'sidebar_menu' => 'Características de la barra lateral',
 ];

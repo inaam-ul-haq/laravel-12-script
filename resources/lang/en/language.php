@@ -42,7 +42,7 @@ return [
     'role_permission' => 'Roles & Permission',
     'site_configuration' => 'Site Configuration',
     'settings' => 'Settings',
-    'configuration' => 'Website Configuration',
+    'configuration' => 'Configuration',
     'form_management' => 'Forms Management',
     'notes' => 'Notes',
     'tags' => 'Tags',
@@ -187,4 +187,8 @@ return [
     'enter_secret' => 'Enter secret',
     'enter_url' => 'Enter URL',
     'update_social_logins' => 'Update Social Logins',
+
+    'sidebar_menu' => 'Features',
+    'sidebar_menu_list' => 'Features List',
+    'parent_name_label' => 'Parent Name',
 ];

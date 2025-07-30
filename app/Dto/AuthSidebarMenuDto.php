@@ -4,9 +4,8 @@ namespace App\Dto;
 
 class AuthSidebarMenuDto
 {
-    // here create public properties same name with database column.
-    // public readonly string $name;
-    // public $file;
+    public readonly string $menu_id;
+    public readonly string $status;
 
     /**
      * Create a new controller instance.
@@ -15,9 +14,8 @@ class AuthSidebarMenuDto
      */
     public function __construct($request)
     {
-        // here add all fields which are comming from request and assign it to database column names
-        // $this->name = $request['name'];
-        // $this->file = isset(request()->file) ? request()->file : null;
+        $this->menu_id = $request['menu_id'];
+        $this->status = $request['status'];
     }
 
     public static function fromRequest($request)
@@ -28,8 +26,8 @@ class AuthSidebarMenuDto
     public function toArray()
     {
         return [
-            // 'name' => $this->name,
-            // 'image' => $this->file
+            'menu_id' => $this->menu_id,
+            'status' => $this->status,
         ];
     }
 }

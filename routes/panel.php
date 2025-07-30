@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\AuthSidebarMenuController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -30,6 +31,11 @@ Route::group(
             Route::put('update/{user}', 'update')->name('update')->middleware('can:edit_user');
             Route::delete('delete/{user}', 'destroy')->name('destroy')->middleware('can:delete_user');
             Route::get('{user}/list', 'getStaff')->name('index')->middleware(['can:all_user', 'validateRole']);
+        });
+
+        Route::prefix('sidebar-menu')->as('menues.')->controller(AuthSidebarMenuController::class)->group(function () {
+            Route::get('', 'index')->name('index')->middleware(['can:all_sidebar_menu']);
+            Route::post('store', 'store')->name('store')->middleware('can:add_sidebar_menu');
         });
 
         Route::prefix('roles')->as('roles.')->controller(RoleController::class)->group(function () {

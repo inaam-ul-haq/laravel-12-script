@@ -22,7 +22,8 @@ class AuthSidebarMenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'menu_id' => 'required|exists:sidebarmenus,id',
+            'status' => 'required|boolean',
         ];
     }
 }

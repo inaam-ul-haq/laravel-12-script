@@ -42,7 +42,7 @@ return [
     'role_permission' => 'Rollen & Berechtigungen',
     'site_configuration' => 'Seiteneinstellungen',
     'settings' => 'Einstellungen',
-    'configuration' => 'Website-Konfiguration',
+    'configuration' => 'Konfiguration',
     'form_management' => 'Formularverwaltung',
     'notes' => 'Notizen',
     'tags' => 'Tags',
@@ -184,4 +184,6 @@ return [
     'enter_secret' => 'Geheimnis eingeben',
     'enter_url' => 'URL eingeben',
     'update_social_logins' => 'Soziale Anmeldungen aktualisieren',
+
+    'sidebar_menu' => 'Features der Seitenleiste',
 ];

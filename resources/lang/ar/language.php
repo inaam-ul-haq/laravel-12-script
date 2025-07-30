@@ -185,4 +185,6 @@ return [
     'enter_secret' => 'أدخل السر',
     'enter_url' => 'أدخل الرابط',
     'update_social_logins' => 'تحديث تسجيلات الدخول الاجتماعية',
+
+    'sidebar_menu' => 'قائمة الشريط الجانبي',
 ];

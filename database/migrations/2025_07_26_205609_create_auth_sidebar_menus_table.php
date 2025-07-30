@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('route')->nullable();
             $table->string('sort_order')->nullable();
             $table->string('feature_key')->nullable();
+            $table->string('route_param')->nullable();
 
             $table->string('status')->default(1);
 

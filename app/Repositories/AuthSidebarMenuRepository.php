@@ -18,21 +18,67 @@ class AuthSidebarMenuRepository extends BaseRepository implements AuthSidebarMen
         $this->setModel($model);
     }
 
+    public function index()
+    {
+        return $this->_model
+            ->with([
+                'permissions',
+                'children' => function ($query) {
+                    $query
+                        ->orderBy('sort_order');
+                },
+                'parent'
+            ])
+            ->orderBy('sort_order')
+            ->get();
+    }
+
+    public function sidebarMenus()
+    {
+        $user = auth()->user();
+
+        return $this->_model->where('status', 1)
+            ->whereNull('parent_id')
+            ->orderBy('sort_order')
+            ->with([
+                'permissions',
+                'children' => function ($query) use ($user) {
+                    $query->where('status', 1)
+                        ->orderBy('sort_order')
+                        ->whereHas('permissions', function ($q) use ($user) {
+                            $q->whereIn('name', $user->getAllPermissions()->pluck('name'));
+                        })
+                        ->with('permissions');
+                },
+                'parent'
+            ])
+            ->whereHas('permissions', function ($query) use ($user) {
+                $query->whereIn('name', $user->getAllPermissions()->pluck('name'));
+            })
+            ->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(AuthSidebarMenuDto $data)
     {
         $dataArray = $data->toArray();
-        $image = $dataArray['image'];
 
-        unset($dataArray['image']);
+        $menu = $this->checkRecord($dataArray['menu_id']);
 
-        $dataResult = $this->add($this->_model, $dataArray);
+        $status = $dataArray['status'];
 
-        if ($image != null) {
-            $imageUploaded = $this->uploadFile($image, $this->_imgPath);
-            $dataResult->images()->create($imageUploaded);
+        dd($status);
+
+        $menu->status = $status;
+        $menu->save();
+
+        if ($menu->children->count()) {
+            foreach ($menu->children as $child) {
+                $child->status = $status;
+                $child->save();
+            }
         }
 
         return true;
