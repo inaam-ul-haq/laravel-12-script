@@ -36,6 +36,7 @@ Route::group(
         Route::prefix('sidebar-menu')->as('menues.')->controller(AuthSidebarMenuController::class)->group(function () {
             Route::get('', 'index')->name('index')->middleware(['can:all_sidebar_menu']);
             Route::post('store', 'store')->name('store')->middleware('can:add_sidebar_menu');
+            Route::get('featureDetail/{id}', 'showAjax')->name('featureDetail')->middleware('can:view_sidebar_menu');
         });
 
         Route::prefix('roles')->as('roles.')->controller(RoleController::class)->group(function () {

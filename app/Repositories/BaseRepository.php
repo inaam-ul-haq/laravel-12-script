@@ -60,4 +60,14 @@ abstract class BaseRepository
 
         return $result;
     }
+
+    public function getByColumn($column)
+    {
+        return $this->get_by_column($this->_model, $column);
+    }
+
+    public function getByColumnSingle($column)
+    {
+        return $this->get_by_column_single($this->_model, $column);
+    }
 }

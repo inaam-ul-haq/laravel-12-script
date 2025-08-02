@@ -21,6 +21,28 @@ class AuthSidebarMenuController extends BaseController
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAjax($id)
+    {
+        $data = $this->_repo->getByColumn(['parent_id' => $id]);
+
+        if ($data == null || $data->isEmpty()) {
+            return response()->json([
+                'message' => __('language.no_data_found'),
+            ], 404);
+        }
+
+        $view = view($this->_directory . '.showAjax', compact('data'))->render();
+
+        return response()->json([
+            'data' => $view
+        ], 200);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -33,13 +55,12 @@ class AuthSidebarMenuController extends BaseController
 
             return response()->json([
                 'status' => true,
-                'message' => 'Successfully created.',
+                'message' => __('language.successfully_created'),
             ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'status' => false,
-                'message' => 'Something went wrong.',
-                'error' => $th->getMessage() // Optional: helpful in dev environment
+                'message' => __('language.something_went_wrong')
             ], 500);
         }
     }
@@ -54,13 +75,13 @@ class AuthSidebarMenuController extends BaseController
     {
         try {
             $this->_repo->update($id, AuthSidebarMenuDto::fromRequest($request->validated()));
-            return redirect()->route($this->_route . '.index')->with('success', 'Updated succesfully');
+            return redirect()->route($this->_route . '.index')->with('success', __('language.updated_successfully'));
         } catch (\Throwable $th) {
             if ($th instanceof NotFoundHttpException) {
-                $message = $th->getMessage(); // Get the exception message
+                $message = $th->getMessage();
                 return redirect()->route($this->_route . '.index')->with('error', $message);
             } else {
-                return redirect()->route($this->_route . '.index')->with('error', 'Something went wrong..');
+                return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
             }
         }
     }

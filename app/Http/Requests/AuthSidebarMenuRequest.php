@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Response;
 
 class AuthSidebarMenuRequest extends FormRequest
 {
@@ -22,8 +25,18 @@ class AuthSidebarMenuRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'menu_id' => 'required|exists:sidebarmenus,id',
+            'menu_id' => 'required|exists:auth_sidebar_menus,id',
             'status' => 'required|boolean',
         ];
+    }
+
+    /**
+     * @param Validator $Validator
+     * @throws ValidationException
+     */
+    protected function failedValidation(Validator $Validator)
+    {
+        $Response = new Response(["message" => __('language.invalid_data'), "errors" => $Validator->errors()], Response::HTTP_BAD_REQUEST);
+        throw new ValidationException($Validator, $Response);
     }
 }
