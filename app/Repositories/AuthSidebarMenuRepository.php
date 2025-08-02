@@ -20,7 +20,7 @@ class AuthSidebarMenuRepository extends BaseRepository implements AuthSidebarMen
 
     public function index()
     {
-        return $this->_model
+        return $this->_model->whereNull('parent_id')
             ->with([
                 'permissions',
                 'children' => function ($query) {
@@ -68,8 +68,6 @@ class AuthSidebarMenuRepository extends BaseRepository implements AuthSidebarMen
         $menu = $this->checkRecord($dataArray['menu_id']);
 
         $status = $dataArray['status'];
-
-        dd($status);
 
         $menu->status = $status;
         $menu->save();

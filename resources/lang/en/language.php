@@ -191,4 +191,14 @@ return [
     'sidebar_menu' => 'Features',
     'sidebar_menu_list' => 'Features List',
     'parent_name_label' => 'Parent Name',
+    'feature_detail' => 'Feature Detail',
+
+    'server_error' => 'Server Error',
+    'something_went_wrong' => 'Something went wrong.',
+    'successfully_created' => 'Successfully created.',
+    'updated_successfully' => 'Updated successfully',
+    'deleted_successfully' => 'Deleted successfully',
+    'no_data_found' => 'No data found.',
+    'delete_confirmation' => 'Are you sure you want to delete this item?',
+    'invalid_data' => 'The given data was invalid.',
 ];

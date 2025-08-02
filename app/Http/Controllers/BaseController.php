@@ -82,13 +82,13 @@ class BaseController extends Controller
     {
         try {
             $this->_repo->destroy($id);
-            return redirect()->route($this->_route . '.index')->with('success', 'Deleted succesfully');
+            return redirect()->route($this->_route . '.index')->with('success', __('language.deleted_successfully'));
         } catch (\Throwable $th) {
             if ($th instanceof NotFoundHttpException) {
                 $message = $th->getMessage();
                 return redirect()->route($this->_route . '.index')->with('error', $message);
             } else {
-                return redirect()->route($this->_route . '.index')->with('error', 'Something went wrong..');
+                return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
             }
         }
     }
