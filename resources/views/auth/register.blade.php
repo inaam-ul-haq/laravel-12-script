@@ -1,21 +1,24 @@
-<x-layouts.login page-title="{{__('language.registertitle')}}" sub-title="{{__('language.registersubtitle')}}">
+<x-layouts.login page-title="{{__('language.sign_up')}}" sub-title="{{__('language.sign_up_sub_title')}}">
 
-    <x-auth.form form-action="{{ route('register', ['plan' => request()->plan, 'billing' => request()->billing]) }}">
+    <x-auth.form form-action="{{ route('register') }}">
 
-        <x-auth.input-field type="text" name="first_name" id="first_name" required="true"
-            place="{{ __('language.first_name_placeholder') }}" val="" extraclasses="mb-3"
-            label="{{ __('language.first_name_label') }}" />
+        <div class="mb-3">
+            <x-auth.input-field type="text" name="first_name" id="first_name" required="true"
+                place="{{ __('language.first_name_placeholder') }}" val="" extraclasses=""
+                label="{{ __('language.first_name_label') }}" />
+        </div>
 
-        <x-auth.input-field type="text" name="last_name" id="last_name" required="true"
-            place="{{ __('language.last_name_placeholder') }}" val="" extraclasses="mb-3"
-            label="{{ __('language.last_name_label') }}" />
+        <div class="mb-3">
+            <x-auth.input-field type="text" name="last_name" id="last_name" required="true"
+                place="{{ __('language.last_name_placeholder') }}" val="" extraclasses=""
+                label="{{ __('language.last_name_label') }}" />
+        </div>
 
-        <x-auth.input-field type="text" name="email" id="email" required="true"
-            place="{{ __('language.email_placeholder') }}" val="" extraclasses="mb-3"
-            label="{{ __('language.email_label') }}" />
-
-        <x-auth.input-field type="text" name="family_code" id="family_code" required="" place="{{ __('ex. BHA-123') }}"
-            val="" extraclasses="mb-3" label="{{ __('Family Code') }}" />
+        <div class="mb-3">
+            <x-auth.input-field type="text" name="email" id="email" required="true"
+                place="{{ __('language.email_placeholder') }}" val="" extraclasses=""
+                label="{{ __('language.email_label') }}" />
+        </div>
 
         <div class="mb-3">
             <div class="password-field position-relative">
@@ -35,10 +38,10 @@
             </div>
         </div>
 
-        <div class="my-4">
+        <div class="mb-3">
             <div class="form-check">
                 <input class="form-check-input @error('terms_condition') is-invalid @enderror" type="checkbox" value="1"
-                    required name="terms_condition" id="terms_condition">
+                    name="terms_condition" id="terms_condition">
                 <label class="form-check-label" for="terms_condition">
                     {{ __('language.agree_terms') }}
                     <x-auth.href-link link-href="#" link-value="{{ __('language.terms_of_use') }}" /> &

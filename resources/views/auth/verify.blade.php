@@ -1,6 +1,7 @@
-<x-layouts.login page-title="{{ __('language.verify_account') }}">
+<x-layouts.login page-title="{{ __('language.verify_account') }}"
+    sub-title="{{__('language.verify_account_sub_title')}}">
     @if (session('resent'))
-    <div class="alert alert-success" role="alert">
+    <div class="alert alert-success p-3" role="alert">
         {{ __('language.resent') }}
     </div>
     @endif

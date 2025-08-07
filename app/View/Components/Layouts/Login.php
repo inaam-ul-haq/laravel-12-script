@@ -17,7 +17,7 @@ class Login extends Component
     public function __construct($pageTitle, $subTitle = null)
     {
         $this->pageTitle = $pageTitle;
-        $this->subTitle = $subTitle == null ? "Sign in to your account to continue" : $subTitle;
+        $this->subTitle = $subTitle == null ? __('language.login_default_subtitle') : $subTitle;
     }
 
     /**

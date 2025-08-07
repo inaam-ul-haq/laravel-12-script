@@ -1,5 +1,5 @@
-<x-layouts.login page-title="{{__('language.confirm_password_label')}}">
-    {{ __('language.confirm_password_sub_title') }}
+<x-layouts.login page-title="{{__('language.confirm_password_label')}}"
+    sub-title="{{__('language.confirm_password_sub_title')}}">
 
     <x-auth.form form-action="{{ route('password.confirm') }}">
         <div class="mb-3">
@@ -17,7 +17,7 @@
 
         @if (Route::has('password.request'))
         <a class="btn btn-link" href="{{ route('password.request') }}">
-            {{ __('Forgot Your Password?') }}
+            {{ __('language.forgot_password') }}
         </a>
         @endif
     </x-auth.form>

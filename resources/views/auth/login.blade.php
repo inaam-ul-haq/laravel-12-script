@@ -1,13 +1,12 @@
-<x-layouts.login page-title="{{__('language.welcometo')}} {{ config('app.name') }}! 👋"
-    sub-title="{{__('language.welcome_sub_title')}}">
+<x-layouts.login page-title="{{__('language.sign_in')}}" sub-title="{{__('language.sign_in_sub_title')}}">
 
     <x-auth.form form-action="{{ route('login') }}">
 
         <x-auth.input-field type="email" name="email" id="email" required="true"
-            place="{{ __('language.email_placeholder') }}" val="" extraclasses="mb-3"
+            place="{{ __('language.email_placeholder') }}" val="" extraclasses=""
             label="{{ __('language.email_label') }}" />
 
-        <div class="mb-3">
+        <div class="mt-3 mb-3">
             <div class="password-field position-relative">
                 <x-auth.input-field type="password" name="password" id="password" required="true"
                     place="{{ __('language.password_placeholder') }}" val=""

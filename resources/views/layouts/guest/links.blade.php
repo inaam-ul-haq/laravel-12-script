@@ -1,12 +1,13 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
-    class="light-style layout-navbar-fixed layout-menu-fixed layout-compact" dir="ltr" data-theme="theme-default"
-    data-template="vertical-menu-template-starter" data-style="light" data-assets-path="{{ asset('assets') }}/">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta name="author" content="iBuildSoft">
+    <link rel="author" href="https://ibuildsoft.com">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,5 +20,5 @@
     @yield('styles')
 </head>
 
-<body class="body_theme1">
+<body class="bg-light" style="background: linear-gradient(135deg, #edf0f6, #f7f5f5);">
     {{-- <x-splash-screen /> --}}

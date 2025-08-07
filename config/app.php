@@ -123,4 +123,9 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'developer' => [
+        'name' => env('DEVELOPER_NAME', 'Inaam ul haq'),
+        'url' => env('DEVELOPER_URL', '#'),
+    ]
+
 ];

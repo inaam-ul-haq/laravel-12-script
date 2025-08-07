@@ -19,6 +19,17 @@
 .wrapper:before {
     height: 10rem !important;
 }
+/* reset password */
+.mb-2-8 {
+    margin-bottom: 2.8rem;
+}
+.title-space{
+    padding-bottom:0.6rem;
+}
+.btn-accoring-to-text {
+    width: revert;
+}
+/* reset password */
 
 .btn-primary,
 .list-group-item.active,
@@ -51,7 +62,8 @@ a.sidebar-link .fab,
 a.sidebar-link .fal,
 a.sidebar-link .far,
 a.sidebar-link .fas,
-a.sidebar-link svg {
+a.sidebar-link svg,
+.text-primary {
     color: var(--primary-color) !important;
 }
 
@@ -180,4 +192,107 @@ a.sidebar-link {
 
 .min-height {
     min-height: 85vh !important;
+}
+
+.big-checkbox {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    background-color: #fff;
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+}
+
+.avatar-sm {
+    height: 32px !important;
+    width: 32px !important;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+.avatar-md {
+    height: 48px !important;
+    width: 48px !important;
+    min-width: 48px;
+    min-height: 48px;
+}
+
+.avatar-lg {
+    height: 64px !important;
+    width: 64px !important;
+    min-width: 64px;
+    min-height: 64px;
+}
+
+.avatar i {
+    font-size: 14px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-sm i {
+    font-size: 12px;
+}
+
+.avatar-md i {
+    font-size: 16px;
+}
+
+.avatar-lg i {
+    font-size: 20px;
+}
+
+.avatar>* {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.quick-action-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar.d-flex {
+    display: flex !important;
+}
+
+.stats-card .bg-primary,
+.stats-card .bg-info,
+.stats-card .bg-warning,
+.stats-card .bg-success,
+.stats-card .bg-danger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    min-height: 48px;
+}
+
+.stats-card .bg-primary i,
+.stats-card .bg-info i,
+.stats-card .bg-warning i,
+.stats-card .bg-success i,
+.stats-card .bg-danger i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.validation-message {
+    font-size: 13px !important;
 }
