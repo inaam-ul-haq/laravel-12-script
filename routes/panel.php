@@ -65,5 +65,9 @@ Route::group(
             Route::post('install/language', 'install_language')->name('install_language');
             Route::post('active/language', 'active_language')->name('active_language');
         });
+
+        Route::prefix('blog')->as('blog.')->middleware('can:manage_blog')->controller()->group(function () {
+            Route::get('', 'index')->name('index');
+        });
     }
 );

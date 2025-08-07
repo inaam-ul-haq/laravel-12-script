@@ -38,6 +38,7 @@ class PermissionSeeder extends Seeder
         Permission::create(['name' => 'site_configuration', 'title' => 'Site Configuration', 'category' => 'Configuration']);
 
         Permission::create(['name' => 'manage_settings', 'title' => 'Profile Setting', 'category' => 'Profile Settings']);
+        Permission::create(['name' => 'manage_blog', 'title' => 'Manage Blog', 'category' => 'Blog']);
 
         Permission::create(['name' => 'communication', 'title' => 'Communication', 'category' => 'Communication']);
     }

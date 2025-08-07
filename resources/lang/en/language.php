@@ -209,4 +209,6 @@ return [
     'no_data_found' => 'No data found.',
     'delete_confirmation' => 'Are you sure you want to delete this item?',
     'invalid_data' => 'The given data was invalid.',
+
+    'blog' => 'Blog Management',
 ];
