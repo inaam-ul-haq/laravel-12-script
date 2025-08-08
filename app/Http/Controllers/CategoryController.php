@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Dto\{{DtoName}};
-use App\Interfaces\{{interfaceName}};
-use App\Http\Requests\{{RequestName}};
+use App\Dto\CategoryDto;
+use App\Interfaces\CategoryInterface;
+use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class {{ controllerName }} extends BaseController
+class CategoryController extends BaseController
 {
     /**
      * Create a new controller instance.
      *
      * @return $reauest, $modal
      */
-    public function __construct({{interfaceName}} $repo)
+    public function __construct(CategoryInterface $repo)
     {
-        $this->setRepo($repo, '{{directory_name}}', '{{route_name}}');
+        $this->setRepo($repo, 'auth.pages.categories', 'categories');
     }
 
     /**
@@ -26,10 +26,10 @@ class {{ controllerName }} extends BaseController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store({{RequestName}} $request)
+    public function store(CategoryRequest $request)
     {
         try {
-            $this->_repo->store({{DtoName}}::fromRequest($request->validated()));
+            $this->_repo->store(CategoryDto::fromRequest($request->validated()));
             return redirect()->route($this->_route . '.index')->with('success', __('language.successfully_created'));
         } catch (\Throwable $th) {
             return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
@@ -42,10 +42,10 @@ class {{ controllerName }} extends BaseController
      * @param Request Validation $validation
      * @return \Illuminate\Http\Response
      */
-    public function update({{RequestName}} $request, $id)
+    public function update(CategoryRequest $request, $id)
     {
         try {
-            $this->_repo->update($id, {{DtoName}}::fromRequest($request->validated()));
+            $this->_repo->update($id, CategoryDto::fromRequest($request->validated()));
             return redirect()->route($this->_route . '.index')->with('success', __('language.updated_successfully'));
         } catch (\Throwable $th) {
             if ($th instanceof NotFoundHttpException) {

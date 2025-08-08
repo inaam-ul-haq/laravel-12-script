@@ -119,13 +119,29 @@ class AuthSidebarMenuSeeder extends Seeder
         $blog = AuthSidebarMenu::create([
             'name' => 'language.blog',
             'icon' => 'fa-pen-to-square',
-            'route' => 'blog.index',
+            'route' => null,
             'sort_order' => 5,
             'feature_key' => 'manage_blog',
             'status' => 1,
         ]);
 
         $this->attachPermission($blog);
+
+        $blogChildren = [
+            [
+                'name' => 'language.category',
+                'icon' => 'fa-angle-double-right',
+                'route' => 'category.index',
+                'sort_order' => 1,
+                'feature_key' => 'manage_category',
+                'status' => 1,
+            ]
+        ];
+
+        foreach ($blogChildren as $blogchildData) {
+            $blogchild = $blog->children()->create($blogchildData);
+            $this->attachPermission($blogchild);
+        }
     }
 
     private function attachPermission(AuthSidebarMenu $menu)

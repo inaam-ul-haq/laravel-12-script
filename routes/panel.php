@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AuthSidebarMenuController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
@@ -66,8 +67,10 @@ Route::group(
             Route::post('active/language', 'active_language')->name('active_language');
         });
 
-        Route::prefix('blog')->as('blog.')->middleware('can:manage_blog')->controller()->group(function () {
+        Route::prefix('blog')->as('blog.')->middleware('can:manage_blog')->group(function () {
+            Route::resource('category', CategoryController::class);
             Route::get('', 'index')->name('index');
         });
     }
+
 );

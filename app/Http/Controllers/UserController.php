@@ -42,7 +42,7 @@ class UserController extends BaseController
             return redirect()->back()->with('success', 'User successfully created.');
         } catch (\Throwable $th) {
             dd($th->getMessage());
-            return redirect()->back()->with('error', 'Something went wrong..');
+            return redirect()->back()->with('error', __('language.something_went_wrong'));
         }
     }
 
@@ -62,7 +62,7 @@ class UserController extends BaseController
                 $message = $th->getMessage(); // Get the exception message
                 return redirect()->back()->with('error', $message);
             } else {
-                return redirect()->back()->with('error', 'Something went wrong..');
+                return redirect()->back()->with('error', __('language.something_went_wrong'));
             }
         }
     }
@@ -95,7 +95,7 @@ class UserController extends BaseController
             if ($th instanceof NotFoundHttpException) {
                 return redirect()->route('myprofile')->with('error', $message);
             } else {
-                return redirect()->route('myprofile')->with('error', 'Something went wrong..');
+                return redirect()->route('myprofile')->with('error', __('language.something_went_wrong'));
             }
         }
     }

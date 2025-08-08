@@ -82,7 +82,7 @@ class BaseController extends Controller
     {
         try {
             $this->_repo->destroy($id);
-            return redirect()->route($this->_route . '.index')->with('success', __('language.deleted_successfully'));
+            return redirect()->route($this->_route . '.index')->with('success', __('language.successfully_created'));
         } catch (\Throwable $th) {
             if ($th instanceof NotFoundHttpException) {
                 $message = $th->getMessage();
