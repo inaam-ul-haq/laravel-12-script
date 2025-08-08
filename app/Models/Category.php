@@ -31,4 +31,13 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id');
     }
+
+    public function getStatusLabelAttribute()
+    {
+        if ($this->attributes['status'] == 1) {
+            return '<span style="background-color: #28a745; color: white; padding: 3px 8px; border-radius: 4px;">Active</span>';
+        }
+
+        return '<span style="background-color: #dc3545; color: white; padding: 3px 8px; border-radius: 4px;">Archived</span>';
+    }
 }

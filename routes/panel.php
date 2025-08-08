@@ -68,8 +68,14 @@ Route::group(
         });
 
         Route::prefix('blog')->as('blog.')->middleware('can:manage_blog')->group(function () {
-            Route::resource('category', CategoryController::class);
-            Route::get('', 'index')->name('index');
+            // Route::get('', 'index')->name('index');
+
+            Route::prefix('category')->as('category.')->controller(CategoryController::class)->middleware('can:manage_category')->group(function () {
+                Route::get('{id?}', 'index')->name('index');
+                Route::post('store', 'store')->name('store');
+                Route::put('update/{role}', 'update')->name('update');
+                Route::delete('delete/{role}', 'destroy')->name('destroy');
+            });
         });
     }
 

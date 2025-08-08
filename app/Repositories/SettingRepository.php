@@ -28,7 +28,7 @@ class SettingRepository extends BaseRepository
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($relation = null)
     {
         return $this->_model->first();
     }

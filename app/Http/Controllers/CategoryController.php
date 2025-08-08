@@ -17,7 +17,23 @@ class CategoryController extends BaseController
      */
     public function __construct(CategoryInterface $repo)
     {
-        $this->setRepo($repo, 'auth.pages.categories', 'categories');
+        $this->setRepo($repo, 'auth.pages.categories', 'blog.category');
+    }
+
+    public function index($id = null)
+    {
+        try {
+            $data['all'] = $this->_repo->index(['parent']);
+
+            if ($id != null) {
+                $data['category'] = $this->_repo->show($id);
+            }
+
+            return view($this->_directory . '.all', compact('data'));
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+            return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
+        }
     }
 
     /**

@@ -131,7 +131,7 @@ class AuthSidebarMenuSeeder extends Seeder
             [
                 'name' => 'language.category',
                 'icon' => 'fa-angle-double-right',
-                'route' => 'category.index',
+                'route' => 'blog.category.index',
                 'sort_order' => 1,
                 'feature_key' => 'manage_category',
                 'status' => 1,

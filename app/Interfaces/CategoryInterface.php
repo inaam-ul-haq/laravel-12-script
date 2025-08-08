@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 interface CategoryInterface
 {
-    public function index();
+    public function index($relation = null);
     public function all($relation = null);
     public function show($id);
     public function destroy($id);

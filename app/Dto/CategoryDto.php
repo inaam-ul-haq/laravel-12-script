@@ -2,8 +2,6 @@
 
 namespace App\Dto;
 
-use Illuminate\Support\Str;
-
 class CategoryDto
 {
     public readonly string $name;
@@ -14,8 +12,8 @@ class CategoryDto
     public function __construct($request)
     {
         $this->name = $request['name'];
-        $this->slug = $request['slug'] ?? Str::slug($this->name);
-        $this->parent_id = $request['parent_id'] ?? null;
+        $this->slug = $request['slug'];
+        $this->parent_id = $request['category_id'] ?? null;
         $this->status = $request['status'] ?? '1';
     }
 

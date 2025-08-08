@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Interfaces\CategoryInterface;
 use App\Dto\CategoryDto;
 use App\Models\Category;
+use Illuminate\Support\Str;
 
 class CategoryRepository extends BaseRepository implements CategoryInterface
 {
@@ -24,18 +25,14 @@ class CategoryRepository extends BaseRepository implements CategoryInterface
     public function store(CategoryDto $data)
     {
         $dataArray = $data->toArray();
-        $image = $dataArray['image'];
 
-        unset($dataArray['image']);
-
-        $dataResult = $this->add($this->_model, $dataArray);
-
-        if ($image != null) {
-            $imageUploaded = $this->uploadFile($image, $this->_imgPath);
-            $dataResult->images()->create($imageUploaded);
+        if (empty($dataArray['slug'])) {
+            $dataArray['slug'] = Str::slug($dataArray['name']);
+        } else {
+            $dataArray['slug'] = Str::slug($dataArray['slug']);
         }
 
-        return true;
+        return $this->add($this->_model, $dataArray);
     }
 
     /**

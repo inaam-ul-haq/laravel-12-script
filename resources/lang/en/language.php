@@ -211,4 +211,13 @@ return [
     'invalid_data' => 'The given data was invalid.',
 
     'blog' => 'Blog Management',
+    'create_category' => 'Create New Category',
+    'category' => 'Categories',
+    'edit_category' => 'Edit Category',
+    'category_title' => 'Category Name',
+    'category_llist' => 'Category List',
+    'category_slug' => 'Category Slug',
+    'delete_category' => 'Delete Category',
+    'edit_category' => 'Edit Category',
+    'active' => 'Active / Archived',
 ];

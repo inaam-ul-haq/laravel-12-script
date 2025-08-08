@@ -18,7 +18,7 @@ class AuthSidebarMenuRepository extends BaseRepository implements AuthSidebarMen
         $this->setModel($model);
     }
 
-    public function index()
+    public function index($relation = null)
     {
         return $this->_model->whereNull('parent_id')
             ->with([

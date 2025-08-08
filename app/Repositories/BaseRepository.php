@@ -20,9 +20,9 @@ abstract class BaseRepository
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($relation = null)
     {
-        return $this->get_all($this->_model);
+        return $this->get_all($this->_model, $relation);
     }
 
     /**

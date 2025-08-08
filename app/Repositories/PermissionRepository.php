@@ -16,7 +16,7 @@ class PermissionRepository extends BaseRepository
         $this->setModel($model);
     }
 
-    public function index()
+    public function index($relation = null)
     {
         return $this->all();
     }
