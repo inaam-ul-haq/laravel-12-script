@@ -211,6 +211,7 @@ return [
     'invalid_data' => 'The given data was invalid.',
 
     'blog' => 'Blog Management',
+
     'create_category' => 'Create New Category',
     'category' => 'Categories',
     'edit_category' => 'Edit Category',
@@ -219,5 +220,29 @@ return [
     'category_slug' => 'Category Slug',
     'delete_category' => 'Delete Category',
     'edit_category' => 'Edit Category',
+
     'active' => 'Active / Archived',
+
+    'create_post' => 'Create New Post',
+    'post' => 'Post / Pages',
+    'edit_post' => 'Edit Post',
+    'post_title' => 'Post Name',
+    'post_llist' => 'Post List',
+    'post_slug' => 'Post Slug',
+    'delete_post' => 'Delete Post',
+    'edit_post' => 'Edit Post',
+
+    'title' => 'Title',
+    'short_description_place' => "Enter your short description",
+    'short_description_title' => 'Short Description',
+    'description_place' => "Enter your description",
+    'description_title' => 'Description',
+
+    'seo_setting_title' => 'SEO Settings',
+    'focus_keyword' => 'Your focus keyword',
+    'meta_title' => 'Your Meta Title',
+    'meta_description' => 'Your meta description here',
+    'cancel_button' => 'Cancel',
+    'save_button' => 'Save',
+    'publish_button' => 'Publish',
 ];

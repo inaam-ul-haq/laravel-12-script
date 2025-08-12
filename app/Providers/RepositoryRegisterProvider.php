@@ -3,12 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Interface\UserInterface;
-use App\Interfaces\AuthSidebarMenuInterface;
-use App\Interfaces\CategoryInterface;
-use App\Repositories\AuthSidebarMenuRepository;
-use App\Repositories\CategoryRepository;
-use App\Repositories\UserRepository;
 
 class RepositoryRegisterProvider extends ServiceProvider
 {
@@ -17,9 +11,10 @@ class RepositoryRegisterProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(UserInterface::class, UserRepository::class);
-        $this->app->bind(AuthSidebarMenuInterface::class, AuthSidebarMenuRepository::class);
-        $this->app->bind(CategoryInterface::class, CategoryRepository::class);
+        $this->app->bind(\App\Interface\UserInterface::class, \App\Repositories\UserRepository::class);
+        $this->app->bind(\App\Interfaces\AuthSidebarMenuInterface::class, \App\Repositories\AuthSidebarMenuRepository::class);
+        $this->app->bind(\App\Interfaces\CategoryInterface::class, \App\Repositories\CategoryRepository::class);
+        $this->app->bind(\App\Interfaces\PostInterface::class, \App\Repositories\PostRepository::class);
     }
 
     /**

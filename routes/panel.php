@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\AuthSidebarMenuController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
@@ -15,6 +16,8 @@ Route::group(
     ['middleware' => 'checkMail'],
     function () {
         Route::get('/', [HomeController::class, 'index'])->name('auth');
+
+        Route::post('uploadPostImage', [UserController::class, 'uploadPostImage'])->name('uploadPostImage');
 
         Route::get('profile', [UserController::class, 'editprofile'])->name('myprofile');
         Route::put('edit-my-profile', [UserController::class, 'updatemyprofile'])->name('updatemyprofile');
@@ -68,14 +71,14 @@ Route::group(
         });
 
         Route::prefix('blog')->as('blog.')->middleware('can:manage_blog')->group(function () {
-            // Route::get('', 'index')->name('index');
-
             Route::prefix('category')->as('category.')->controller(CategoryController::class)->middleware('can:manage_category')->group(function () {
                 Route::get('{id?}', 'index')->name('index');
                 Route::post('store', 'store')->name('store');
                 Route::put('update/{role}', 'update')->name('update');
                 Route::delete('delete/{role}', 'destroy')->name('destroy');
             });
+
+            Route::resource('post', PostController::class)->middleware('can:manage_post');
         });
     }
 

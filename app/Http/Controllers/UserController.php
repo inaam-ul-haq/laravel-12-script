@@ -110,4 +110,9 @@ class UserController extends BaseController
         $data['all'] = $this->_repo->getStaff($user);
         return view($this->_directory . '.all', compact('data'));
     }
+
+    public function uploadPostImage(Request $request)
+    {
+        dd('');
+    }
 }

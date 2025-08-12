@@ -135,6 +135,14 @@ class AuthSidebarMenuSeeder extends Seeder
                 'sort_order' => 1,
                 'feature_key' => 'manage_category',
                 'status' => 1,
+            ],
+            [
+                'name' => 'language.post',
+                'icon' => 'fa-angle-double-right',
+                'route' => 'blog.post.index',
+                'sort_order' => 2,
+                'feature_key' => 'manage_post',
+                'status' => 1,
             ]
         ];
 
