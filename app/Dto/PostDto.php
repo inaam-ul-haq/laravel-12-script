@@ -15,7 +15,7 @@ class PostDto
     public readonly ?string $published_at;
     public readonly bool $is_featured;
     public readonly int $view_count;
-    public readonly ?string $featured_image;
+    public $featured_image;
     public readonly ?string $author_id;
 
     /**
@@ -30,11 +30,11 @@ class PostDto
         $this->focus_keyword    = $request['focus_keyword'] ?? null;
         $this->meta_title       = $request['meta_title'] ?? null;
         $this->meta_description = $request['meta_description'] ?? null;
-        $this->status           = $request['status'] ?? 'draft';
-        $this->published_at     = $request['published_at'] ?? null;
+        $this->status           = $request['status'] ?? 'Save';
+        $this->published_at     = $request['published_at'] ?? now();
         $this->is_featured      = isset($request['is_featured']) ? (bool)$request['is_featured'] : false;
         $this->view_count       = 0;
-        $this->featured_image   = isset($request['featured_image']) ? $request['featured_image'] : null;
+        $this->featured_image   = isset($request['dragimage']) ? $request['dragimage'] : null;
         $this->author_id        = auth()->id();
     }
 
@@ -57,7 +57,7 @@ class PostDto
             'published_at'     => $this->published_at,
             'is_featured'      => $this->is_featured,
             'view_count'       => $this->view_count,
-            'featured_image'   => $this->featured_image,
+            'image'   => $this->featured_image,
             'author_id'        => $this->author_id,
         ];
     }

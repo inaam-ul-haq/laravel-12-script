@@ -32,7 +32,7 @@ class PostRepository extends BaseRepository implements PostInterface
 
         if ($image != null) {
             $imageUploaded = $this->uploadFile($image, $this->_imgPath);
-            $dataResult->images()->create($imageUploaded);
+            $dataResult->file()->create($imageUploaded);
         }
 
         return true;

@@ -74,8 +74,8 @@ Route::group(
             Route::prefix('category')->as('category.')->controller(CategoryController::class)->middleware('can:manage_category')->group(function () {
                 Route::get('{id?}', 'index')->name('index');
                 Route::post('store', 'store')->name('store');
-                Route::put('update/{role}', 'update')->name('update');
-                Route::delete('delete/{role}', 'destroy')->name('destroy');
+                Route::put('update/{category}', 'update')->name('update');
+                Route::delete('delete/{category}', 'destroy')->name('destroy');
             });
 
             Route::resource('post', PostController::class)->middleware('can:manage_post');

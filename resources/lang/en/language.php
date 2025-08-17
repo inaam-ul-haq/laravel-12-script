@@ -225,12 +225,17 @@ return [
 
     'create_post' => 'Create New Post',
     'post' => 'Post / Pages',
+    'post_detail' => 'Post Detail',
     'edit_post' => 'Edit Post',
     'post_title' => 'Post Name',
     'post_llist' => 'Post List',
     'post_slug' => 'Post Slug',
     'delete_post' => 'Delete Post',
     'edit_post' => 'Edit Post',
+    'views' => 'Views',
+    'unknown_author' => 'Unknown Author',
+    'not_published' => 'Not Published',
+    'no_short_description' => 'No Short Description',
 
     'title' => 'Title',
     'short_description_place' => "Enter your short description",

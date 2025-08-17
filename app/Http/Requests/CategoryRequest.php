@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CategoryRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class CategoryRequest extends FormRequest
                 'nullable',
                 'string',
                 'max:255',
-                'unique:categories,slug,' . $this->route('category'),
+                Rule::unique('categories', 'slug')->ignore($this->route('category')),
                 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/'
             ],
             'status'      => 'nullable|in:0,1',

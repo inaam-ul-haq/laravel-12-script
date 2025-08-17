@@ -24,15 +24,16 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:posts,slug,' . $this->route('post'),
-            'short_description' => 'nullable|string|max:500',
+            'short_description' => 'nullable|string',
             'content' => 'required|string',
             'focus_keyword' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
             'is_featured' => 'nullable|boolean',
-            'status' => 'required|in:draft,published,archived',
+            'status' => 'required|in:Save,Publish,Archived',
             'published_at' => 'nullable|date',
-            'featured_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'category_id' => 'nullable|exists:categories,id|uuid',
+            'dragimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ];
     }
 }

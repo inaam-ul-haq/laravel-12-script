@@ -24,7 +24,7 @@ return new class extends Migration
 
             $table->foreignId('author_id')->nullable()->constrained('users')->nullOnDelete();
 
-            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+            $table->enum('status', ['Save', 'Publish', 'Archived'])->default('Save');
             $table->timestamp('published_at')->nullable();
 
             $table->boolean('is_featured')->default(false);

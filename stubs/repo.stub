@@ -32,7 +32,7 @@ class {{ repositoryName }} extends BaseRepository implements {{ interfaceName }}
 
         if ($image != null) {
             $imageUploaded = $this->uploadFile($image, $this->_imgPath);
-            $dataResult->images()->create($imageUploaded);
+            $dataResult->file()->create($imageUploaded);
         }
 
         return true;
