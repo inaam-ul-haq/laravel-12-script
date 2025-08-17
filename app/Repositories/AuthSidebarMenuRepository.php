@@ -22,7 +22,6 @@ class AuthSidebarMenuRepository extends BaseRepository implements AuthSidebarMen
     {
         return $this->_model->whereNull('parent_id')
             ->with([
-                'permissions',
                 'children' => function ($query) {
                     $query
                         ->orderBy('sort_order');
