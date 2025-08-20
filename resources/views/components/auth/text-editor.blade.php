@@ -13,5 +13,5 @@
 </style>
 @endpush
 
-<x-auth.text-area name="{{ $name }}" id="{{ $id }}" place="{{ $place }}" required="{{ $required }}" val="{{ $val }}"
+<x-auth.text-area name="{{ $name }}" id="{{ $id }}" place="{{ $place }}" required="{{ $required }}" val="{!! $val !!}"
     label="{{ $label }}" extraclasses="ckeditor mt-3" />

@@ -156,6 +156,24 @@ class PostRepository extends BaseRepository implements PostInterface
         $result = $this->checkRecord($id);
 
         $dataArray = $data->toArray();
-        return $result->update($dataArray);
+
+        $metaDetails = [
+            'focus_keyword' => $dataArray['focus_keyword'],
+            'meta_title' => $dataArray['meta_title'],
+            'meta_description' => $dataArray['meta_description'],
+            'og_title' => $dataArray['meta_title'],
+            'og_description' => $dataArray['meta_description'],
+            'twitter_title' => $dataArray['meta_title'],
+            'twitter_description' => $dataArray['meta_description'],
+        ];
+
+        $result->update($dataArray);
+
+        $result->meta_detail()->updateOrCreate(
+            [],
+            $metaDetails
+        );
+
+        return true;
     }
 }

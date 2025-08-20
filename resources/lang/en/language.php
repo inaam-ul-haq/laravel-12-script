@@ -231,7 +231,6 @@ return [
     'post_llist' => 'Post List',
     'post_slug' => 'Post Slug',
     'delete_post' => 'Delete Post',
-    'edit_post' => 'Edit Post',
     'views' => 'Views',
     'unknown_author' => 'Unknown Author',
     'not_published' => 'Not Published',

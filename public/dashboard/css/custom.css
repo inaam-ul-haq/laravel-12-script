@@ -19,16 +19,20 @@
 .wrapper:before {
     height: 10rem !important;
 }
+
 /* reset password */
 .mb-2-8 {
     margin-bottom: 2.8rem;
 }
-.title-space{
-    padding-bottom:0.6rem;
+
+.title-space {
+    padding-bottom: 0.6rem;
 }
+
 .btn-accoring-to-text {
     width: revert;
 }
+
 /* reset password */
 
 .btn-primary,
@@ -138,10 +142,13 @@ button:focus {
     background-color: var(--secondary-color) !important;
 }
 
-.sidebar-user img,
-.logo {
+.sidebar-user img {
     height: 5rem !important;
     width: auto !important;
+}
+
+.logo {
+    height: 4rem !important;
 }
 
 .center-link {

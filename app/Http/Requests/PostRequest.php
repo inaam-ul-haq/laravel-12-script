@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class PostRequest extends FormRequest
 {
@@ -21,24 +22,29 @@ class PostRequest extends FormRequest
      */
     public function rules(): array
     {
+        $postId = $this->route('post');
+
         return [
             'title' => 'required|string|max:255',
-            'slug' => 'required|string|max:255|unique:posts,slug,' . $this->route('post'),
+            'slug' => [
+                'required',
+                'string',
+                'max:255',
+                Rule::unique('posts', 'slug')->ignore($postId)
+            ],
             'short_description' => 'nullable|string',
             'content' => 'required|string',
+
             'focus_keyword' => 'nullable|string|max:255',
             'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string|max:500',
+
             'is_featured' => 'nullable|boolean',
             'status' => 'required|in:Save,Publish,Archived',
             'published_at' => 'nullable|date',
             'category_id' => 'nullable|exists:categories,id|uuid',
-            'dragimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
 
-            // meta details
-            'focus_keyword' => 'nullable|string|max:255',
-            'meta_title' => 'nullable|string|max:500',
-            'meta_description' => 'nullable|string|max:255',
+            'dragimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ];
     }
 }

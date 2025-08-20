@@ -32,7 +32,6 @@ class PostController extends BaseController
             $this->_repo->store(PostDto::fromRequest($request->validated()));
             return redirect()->route($this->_route . '.index')->with('success', __('language.successfully_created'));
         } catch (\Throwable $th) {
-            dd($th->getMessage());
             return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
         }
     }
@@ -49,8 +48,9 @@ class PostController extends BaseController
             $this->_repo->update($id, PostDto::fromRequest($request->validated()));
             return redirect()->route($this->_route . '.index')->with('success', __('language.updated_successfully'));
         } catch (\Throwable $th) {
+            $message = $th->getMessage();
+            dd($message);
             if ($th instanceof NotFoundHttpException) {
-                $message = $th->getMessage(); // Get the exception message
                 return redirect()->route($this->_route . '.index')->with('error', $message);
             } else {
                 return redirect()->route($this->_route . '.index')->with('error', __('language.something_went_wrong'));
