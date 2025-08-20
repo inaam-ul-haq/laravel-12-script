@@ -34,6 +34,11 @@ class PostRequest extends FormRequest
             'published_at' => 'nullable|date',
             'category_id' => 'nullable|exists:categories,id|uuid',
             'dragimage' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+
+            // meta details
+            'focus_keyword' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:500',
+            'meta_description' => 'nullable|string|max:255',
         ];
     }
 }

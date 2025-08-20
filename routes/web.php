@@ -48,6 +48,7 @@ Route::group(
     function () {
         Route::controller(FrontendController::class)->group(function () {
             Route::get('/', 'welcome')->name('welcome');
+            Route::get('post/{slug}', 'welcome')->name('post.detail');
         });
 
         Route::prefix('/account/')->middleware('CheckRegister')->group(function () {
