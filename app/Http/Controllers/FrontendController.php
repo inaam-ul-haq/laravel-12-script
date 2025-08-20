@@ -13,7 +13,6 @@ class FrontendController extends Controller
 
     public function welcome()
     {
-        return redirect()->route('login');
-        return view($this->_dir . 'welcome', compact('data'));
+        return view($this->_dir . 'welcome');
     }
 }
