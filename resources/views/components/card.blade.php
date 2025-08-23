@@ -16,7 +16,5 @@
     </div>
     @endif
 
-    <div class="{{ $cardBody }}">
-        {{ $slot }}
-    </div>
+    {{ $slot }}
 </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\Auth;
+namespace App\View\Components;
 
 use Closure;
 use Illuminate\Contracts\View\View;
@@ -31,6 +31,6 @@ class Card extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.auth.card');
+        return view('components.card');
     }
 }

@@ -3,13 +3,14 @@
 namespace App\Models;
 
 use App\Relationships\FileRelationship;
+use App\Relationships\MetaDetailRelationship;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {
-    use HasFactory, HasUuids, FileRelationship;
+    use HasFactory, HasUuids, FileRelationship, MetaDetailRelationship;
 
     /**
      * The attributes that are mass assignable.

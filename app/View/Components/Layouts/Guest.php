@@ -9,13 +9,20 @@ use Illuminate\View\Component;
 class Guest extends Component
 {
     public $pageTitle = '';
+    public $metaDetail = null;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($pageTitle)
+    public function __construct($pageTitle, $metaDetail = null)
     {
         $this->pageTitle = $pageTitle;
+
+        if ($metaDetail == null) {
+            $this->metaDetail = app()->make('App\Services\SettingService')->getSettings();
+        } else {
+            $this->metaDetail = $metaDetail;
+        }
     }
 
     /**

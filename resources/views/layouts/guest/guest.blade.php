@@ -4,7 +4,7 @@
     @include('layouts.guest.top-bar')
     @include('layouts.guest.navigation')
 
-    <div class="">
+    <div class="container mt-3">
         {{ $slot }}
     </div>
 

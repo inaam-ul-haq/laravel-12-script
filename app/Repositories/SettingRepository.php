@@ -30,7 +30,11 @@ class SettingRepository extends BaseRepository
      */
     public function index($relation = null)
     {
-        return $this->_model->first();
+        if ($relation == null) {
+            return $this->_model->first();
+        } else {
+            return $this->_model->with($relation)->first();
+        }
     }
 
     /**

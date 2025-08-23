@@ -10,14 +10,21 @@ class Login extends Component
 {
     public $pageTitle = '';
     public $subTitle = '';
+    public $metaDetail = null;
 
     /**
      * Create a new component instance.
      */
-    public function __construct($pageTitle, $subTitle = null)
+    public function __construct($pageTitle, $subTitle = null, $metaDetail = null)
     {
         $this->pageTitle = $pageTitle;
         $this->subTitle = $subTitle == null ? __('language.login_default_subtitle') : $subTitle;
+
+        if ($metaDetail == null) {
+            $this->metaDetail = app()->make('App\Services\SettingService')->getSettings();
+        } else {
+            $this->metaDetail = $metaDetail;
+        }
     }
 
     /**

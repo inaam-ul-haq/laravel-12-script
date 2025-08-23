@@ -18,7 +18,7 @@ class SettingService
     public function getSettings()
     {
         return Cache::remember(CacheConstants::SITE_SETTINGS, 3600, function () {
-            return $this->settingRepo->index();
+            return $this->settingRepo->index(['meta_detail']);
         });
     }
 

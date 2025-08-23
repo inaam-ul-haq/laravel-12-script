@@ -31,5 +31,24 @@ class SettingSeeder extends Seeder
 
         $setting->save();
         $setting->file()->create(['name' => 'logo.png', 'path' => 'settings/logo.png', 'type' => 'logo']);
+
+        $setting->meta_detail()->create([
+            'meta_title'        => config('services.app.name'),
+            'meta_description'  => 'Default meta description for the application.',
+            'meta_keywords'     => 'laravel, settings, seo',
+            'focus_keyword'     => 'laravel seo',
+            'og_title'          => config('services.app.name'),
+            'og_description'    => 'Default OpenGraph description',
+            'og_type'           => 'website',
+            'og_image'          => 'settings/logo.png',
+            'twitter_title'     => config('services.app.name'),
+            'twitter_description' => 'Default Twitter description',
+            'twitter_card'      => 'summary_large_image',
+            'twitter_image'     => 'settings/logo.png',
+            'canonical_url'     => null,
+            'noindex'           => 0,
+            'nofollow'          => 0,
+            'status'            => 1,
+        ]);
     }
 }

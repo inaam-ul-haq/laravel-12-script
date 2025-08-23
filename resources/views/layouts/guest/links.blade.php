@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="author" content="iBuildSoft">
-    <link rel="author" href="https://ibuildsoft.com">
+    <meta name="author" content="Inaam ul haq">
+    <link rel="author" href="https://inaamulhak.com">
+
+    <x-meta-details :meta-detail="$metaDetail" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -20,5 +22,5 @@
     @yield('styles')
 </head>
 
-<body class="bg-light" style="background: linear-gradient(135deg, #edf0f6, #f7f5f5);">
+<body class="bg-white">
     {{-- <x-splash-screen /> --}}

@@ -13,6 +13,11 @@ class FrontendController extends Controller
 
     public function welcome()
     {
-        return view($this->_dir . 'welcome');
+        $postRepo = app()->make('App\Interfaces\PostInterface');
+
+        $featured = $postRepo->getByColumn(['is_featured' => true]);
+        $posts = $postRepo->getByColumn(['is_featured' => false]);
+
+        return view($this->_dir . 'welcome', compact('posts', 'featured'));
     }
 }
